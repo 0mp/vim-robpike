@@ -1,0 +1,178 @@
+#! /bin/sh -
+#
+# This script generates a minimal Vim color scheme.
+#
+# ---
+#
+# Copyright (c) 2017 Mateusz Piotrowski <mpp302@gmail.com>
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHORS AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+
+colorschemename='robpike'
+maintainer='Mateusz Piotrowski'
+background=light
+
+generate_header() {
+    cat << EOF
+" Vim color scheme
+"
+" This file was generated automatically.
+"
+" Name: $colorschemename.vim
+" Maintainer: $maintainer
+
+set background=$background
+hi clear
+if (exists('syntax_on'))
+    syntax reset
+endif
+
+let g:colors_name = '$colorschemename'
+EOF
+}
+
+link() {
+    printf 'hi! link %s %s\n' $1 $2
+}
+
+hl() {
+    printf 'hi %s' "$1"
+    shift
+
+    while [ $# -gt 0 ]; do
+        case "$1" in
+            guifg=*|ctermfg=*|guibg=*|ctermbg=*|gui=*|cterm=*|term=*|NONE)
+                printf ' %s' "$1"
+                shift
+                ;;
+            *)
+                printf 'Invalid option "%s"\n' "$1" &1>2
+                exit 1
+        esac
+    done
+    echo
+}
+
+dobg() {
+    if [ $# -gt 0 ]; then
+        printf ' ctermbg=%s' $1
+    fi
+    shift
+    if [ $# -gt 0 ]; then
+        printf ' guibg=%s' $1
+    fi
+}
+
+dofg() {
+    if [ $# -gt 0 ]; then
+        printf ' ctermfg=%s' $1
+    fi
+    shift
+    if [ $# -gt 0 ]; then
+        printf ' guifg=%s' $1
+    fi
+}
+
+generate_header
+echo
+
+set -u
+
+color_ansi_primary=0
+color_ansi_red=1
+color_ansi_green=2
+color_ansi_yellow=3
+color_ansi_blue=4
+color_ansi_magenta=5
+color_ansi_cyan=6
+color_ansi_dark_white=7
+color_ansi_bright_black=8
+color_ansi_bright_red=9
+color_ansi_bright_green=10
+color_ansi_bright_yellow=11
+color_ansi_bright_blue=12
+color_ansi_bright_magenta=13
+color_ansi_bright_cyan=14
+color_ansi_bright_white=15
+
+color_black='16 Black'
+color_common_gray='254 #e4e4e4'
+color_dark_gray='248 DarkGray'
+color_middle_gray='243 #737373'
+color_light_gray='252 LightGray'
+color_bright_white='231 #ffffff'
+
+reset="NONE"
+fg_reset="$(dofg NONE NONE)"
+bg_reset="$(dobg NONE NONE)"
+term_reset='cterm=NONE term=NONE'
+
+bg_ansi_blue="$(dobg $color_ansi_blue)"
+bg_ansi_bright_white="$(dobg $color_ansi_bright_white)"
+bg_ansi_bright_yellow="$(dobg $color_ansi_bright_yellow)"
+# bg_ansi_dark_white="$(dobg $color_ansi_dark_white)"
+bg_common_gray="$(dobg $color_common_gray)"
+# bg_dark_gray="$(dofg $color_dark_gray)"
+
+fg_ansi_blue="$(dofg $color_ansi_blue)"
+# fg_ansi_bright_green="$(dofg $color_ansi_bright_green)"
+fg_ansi_bright_magenta="$(dofg $color_ansi_bright_magenta)"
+fg_ansi_dark_white="$(dofg $color_ansi_dark_white)"
+# fg_ansi_green="$(dofg $color_ansi_green)"
+fg_ansi_red="$(dofg $color_ansi_red)"
+fg_black="$(dofg $color_black)"
+fg_bright_white="$(dofg $color_bright_white)"
+# fg_dark_gray="$(dofg $color_dark_gray)"
+fg_middle_gray="$(dofg $color_middle_gray)"
+
+bold="cterm=bold term=bold"
+underline="cterm=underline term=underline"
+
+hl Normal $reset
+link Constant Normal
+link Identifier Normal
+link PreProc Normal
+link Special Normal
+link Statement Normal
+link String Normal
+link Type Normal
+
+hl Comment $fg_middle_gray
+
+hl ColorColumn $bg_common_gray
+hl CursorLine $underline
+hl CursorLineNr $fg_reset $bg_reset $bold
+hl Folded $bg_reset
+hl LineNr $fg_ansi_dark_white
+
+hl Error $fg_ansi_red $bg_reset
+hl MatchParen $fg_ansi_blue $bg_reset
+hl Pmenu $fg_black $bg_common_gray
+hl PmenuSel $fg_bright_white $bg_ansi_blue
+hl Search $fg_ansi_bright_magenta $bg_reset
+hl TabLineFill $bg_ansi_bright_white $term_reset
+hl TabLineSel $bold
+hl Title $fg_reset $bg_reset $bold
+hl Todo $fg_reset $bg_reset $bold
+hl Visual $bg_ansi_bright_yellow
