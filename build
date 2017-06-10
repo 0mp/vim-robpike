@@ -175,4 +175,4 @@ hl TabLineFill $bg_ansi_bright_white $term_reset
 hl TabLineSel $bold
 hl Title $fg_reset $bg_reset $bold
 hl Todo $fg_reset $bg_reset $bold
-hl Visual $bg_ansi_bright_yellow
+hl Visual $bg_ansi_bright_yellow $fg_black
