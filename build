@@ -177,4 +177,6 @@ hl Title $fg_reset $bg_reset $bold
 hl Todo $fg_reset $bg_reset $bold
 hl Visual $bg_ansi_bright_yellow $fg_black
 
+hl SpellBad $fg_ansi_red $bg_reset $term_reset
+
 hl gitcommitSummary $fg_ansi_blue
