@@ -31,6 +31,7 @@
 
 colorschemename='robpike'
 maintainer='Mateusz Piotrowski'
+version=0.1.0
 background=light
 
 generate_header() {
@@ -41,6 +42,7 @@ generate_header() {
 "
 " Name: $colorschemename.vim
 " Maintainer: $maintainer
+" Version: $version
 
 set background=$background
 hi clear
