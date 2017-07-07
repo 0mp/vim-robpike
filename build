@@ -31,7 +31,7 @@
 
 colorschemename='robpike'
 maintainer='Mateusz Piotrowski'
-version=0.2.0
+version=0.3.0
 background=light
 
 generate_header() {
@@ -163,8 +163,8 @@ link Type Normal
 hl Comment $fg_middle_gray
 
 hl ColorColumn $bg_common_gray
-hl CursorLine $bold
-hl CursorLineNr $fg_reset $bg_reset $bold
+hl CursorLine $fg_reset $bg_reset $term_reset
+hl CursorLineNr $fg_ansi_dark_white $bg_ansi_blue $bold
 hl Folded $bg_reset
 hl LineNr $fg_ansi_dark_white
 

@@ -4,7 +4,7 @@
 "
 " Name: robpike.vim
 " Maintainer: Mateusz Piotrowski
-" Version: 0.2.0
+" Version: 0.3.0
 
 set background=light
 hi clear
@@ -24,8 +24,8 @@ hi! link String Normal
 hi! link Type Normal
 hi Comment ctermfg=243 guifg=#737373
 hi ColorColumn ctermbg=254 guibg=#e4e4e4
-hi CursorLine cterm=bold term=bold
-hi CursorLineNr ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE cterm=bold term=bold
+hi CursorLine ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE cterm=NONE term=NONE
+hi CursorLineNr ctermfg=7 ctermbg=4 cterm=bold term=bold
 hi Folded ctermbg=NONE guibg=NONE
 hi LineNr ctermfg=7
 hi Error ctermfg=1 ctermbg=NONE guibg=NONE
