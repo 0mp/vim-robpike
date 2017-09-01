@@ -31,7 +31,7 @@
 
 colorschemename='robpike'
 maintainer='Mateusz Piotrowski'
-version=0.4.0
+version=0.5.0
 background=light
 
 generate_header() {
@@ -76,6 +76,10 @@ hl() {
     echo
 }
 
+match() {
+    printf 'match %s %s\n' "$1" "$2"
+}
+
 dobg() {
     if [ $# -gt 0 ]; then
         printf ' ctermbg=%s' $1
@@ -101,29 +105,23 @@ echo
 
 set -u
 
-color_ansi_primary=0
+# Color definitions.
+# http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
+
 color_ansi_red=1
-color_ansi_green=2
-color_ansi_yellow=3
 color_ansi_blue=4
-color_ansi_magenta=5
-color_ansi_cyan=6
 color_ansi_dark_white=7
 color_ansi_bright_black=8
-color_ansi_bright_red=9
-color_ansi_bright_green=10
 color_ansi_bright_yellow=11
-color_ansi_bright_blue=12
 color_ansi_bright_magenta=13
-color_ansi_bright_cyan=14
 color_ansi_bright_white=15
 
 color_black='16 Black'
 color_common_gray='254 #e4e4e4'
-color_dark_gray='248 DarkGray'
 color_middle_gray='243 #737373'
-color_light_gray='252 LightGray'
 color_bright_white='231 #ffffff'
+
+# Command construction.
 
 reset="NONE"
 fg_reset="$(dofg NONE NONE)"
@@ -133,24 +131,21 @@ term_reset='cterm=NONE term=NONE'
 bg_ansi_blue="$(dobg $color_ansi_blue)"
 bg_ansi_bright_white="$(dobg $color_ansi_bright_white)"
 bg_ansi_bright_yellow="$(dobg $color_ansi_bright_yellow)"
-# bg_ansi_dark_white="$(dobg $color_ansi_dark_white)"
 bg_common_gray="$(dobg $color_common_gray)"
-# bg_dark_gray="$(dofg $color_dark_gray)"
+bg_ansi_bright_black="$(dobg $color_ansi_bright_black)"
 
 fg_ansi_blue="$(dofg $color_ansi_blue)"
-# fg_ansi_bright_green="$(dofg $color_ansi_bright_green)"
 fg_ansi_bright_magenta="$(dofg $color_ansi_bright_magenta)"
 fg_ansi_bright_black="$(dofg $color_ansi_bright_black)"
 fg_ansi_dark_white="$(dofg $color_ansi_dark_white)"
-# fg_ansi_green="$(dofg $color_ansi_green)"
 fg_ansi_red="$(dofg $color_ansi_red)"
 fg_black="$(dofg $color_black)"
 fg_bright_white="$(dofg $color_bright_white)"
-# fg_dark_gray="$(dofg $color_dark_gray)"
 fg_middle_gray="$(dofg $color_middle_gray)"
 
 bold="cterm=bold term=bold"
-underline="cterm=underline term=underline"
+
+# The core of the colorscheme build system.
 
 hl Normal $reset
 link Constant Normal
@@ -178,10 +173,14 @@ hl TabLineFill $bg_ansi_bright_white $term_reset
 hl TabLineSel $bold
 hl Title $fg_reset $bg_reset $bold
 hl Todo $fg_reset $bg_reset $bold
-hl Visual $bg_ansi_bright_yellow $fg_black
+hl Visual $fg_black $bg_ansi_bright_yellow
 
 hl SpecialKey $fg_ansi_bright_black $term_reset
 
 hl SpellBad $fg_ansi_red $bg_reset $term_reset
 
 hl gitcommitSummary $fg_ansi_blue
+
+# https://jbodah.github.io/blog/2016/11/01/positivenegative-lookaheadlookbehind-vim/
+hl SpaceTrailingAnyTabs $bg_ansi_bright_black
+match SpaceTrailingAnyTabs '/\(^\t*\)\@<= \+$/'
