@@ -31,7 +31,7 @@
 
 colorschemename='robpike'
 maintainer='Mateusz Piotrowski'
-version=0.5.0
+version=0.6.0
 background=light
 
 generate_header() {
@@ -132,7 +132,6 @@ bg_ansi_blue="$(dobg $color_ansi_blue)"
 bg_ansi_bright_white="$(dobg $color_ansi_bright_white)"
 bg_ansi_bright_yellow="$(dobg $color_ansi_bright_yellow)"
 bg_common_gray="$(dobg $color_common_gray)"
-bg_ansi_bright_black="$(dobg $color_ansi_bright_black)"
 
 fg_ansi_blue="$(dofg $color_ansi_blue)"
 fg_ansi_bright_magenta="$(dofg $color_ansi_bright_magenta)"
@@ -144,6 +143,7 @@ fg_bright_white="$(dofg $color_bright_white)"
 fg_middle_gray="$(dofg $color_middle_gray)"
 
 bold="cterm=bold term=bold"
+underline="cterm=underline term=underline"
 
 # The core of the colorscheme build system.
 
@@ -182,5 +182,5 @@ hl SpellBad $fg_ansi_red $bg_reset $term_reset
 hl gitcommitSummary $fg_ansi_blue
 
 # https://jbodah.github.io/blog/2016/11/01/positivenegative-lookaheadlookbehind-vim/
-hl SpaceTrailingAnyTabs $bg_ansi_bright_black
+hl SpaceTrailingAnyTabs $underline
 match SpaceTrailingAnyTabs '/\(^\t*\)\@<= \+$/'

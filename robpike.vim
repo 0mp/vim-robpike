@@ -4,7 +4,7 @@
 "
 " Name: robpike.vim
 " Maintainer: Mateusz Piotrowski
-" Version: 0.5.0
+" Version: 0.6.0
 
 set background=light
 hi clear
@@ -41,5 +41,5 @@ hi Visual ctermfg=16 guifg=Black ctermbg=11
 hi SpecialKey ctermfg=8 cterm=NONE term=NONE
 hi SpellBad ctermfg=1 ctermbg=NONE guibg=NONE cterm=NONE term=NONE
 hi gitcommitSummary ctermfg=4
-hi SpaceTrailingAnyTabs ctermbg=8
+hi SpaceTrailingAnyTabs cterm=underline term=underline
 match SpaceTrailingAnyTabs /\(^\t*\)\@<= \+$/
