@@ -31,7 +31,7 @@
 
 colorschemename='robpike'
 maintainer='Mateusz Piotrowski'
-version=0.6.1
+version=0.7.0
 background=light
 
 generate_header() {
@@ -112,7 +112,6 @@ color_ansi_red=1
 color_ansi_blue=4
 color_ansi_dark_white=7
 color_ansi_bright_black=8
-color_ansi_bright_yellow=11
 color_ansi_bright_magenta=13
 color_ansi_bright_white=15
 
@@ -120,6 +119,7 @@ color_black='16 Black'
 color_common_gray='254 #e4e4e4'
 color_middle_gray='243 #737373'
 color_bright_white='231 #ffffff'
+color_light_green='LightGreen LightGreen'
 
 # Command construction.
 
@@ -130,8 +130,8 @@ term_reset='cterm=NONE term=NONE'
 
 bg_ansi_blue="$(dobg $color_ansi_blue)"
 bg_ansi_bright_white="$(dobg $color_ansi_bright_white)"
-bg_ansi_bright_yellow="$(dobg $color_ansi_bright_yellow)"
 bg_common_gray="$(dobg $color_common_gray)"
+bg_light_green="$(dobg $color_light_green)"
 
 fg_ansi_blue="$(dofg $color_ansi_blue)"
 fg_ansi_bright_magenta="$(dofg $color_ansi_bright_magenta)"
@@ -173,7 +173,7 @@ hl TabLineFill $bg_ansi_bright_white $term_reset
 hl TabLineSel $bold
 hl Title $fg_reset $bg_reset $bold
 hl Todo $fg_reset $bg_reset $bold
-hl Visual $fg_black $bg_ansi_bright_yellow
+hl Visual $fg_black $bg_light_green
 
 hl SpecialKey $fg_ansi_bright_black $term_reset
 
