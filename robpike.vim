@@ -4,7 +4,7 @@
 "
 " Name: robpike.vim
 " Maintainer: Mateusz Piotrowski
-" Version: 0.7.0
+" Version: 0.8.0
 
 set background=light
 hi clear
@@ -29,7 +29,7 @@ hi CursorLineNr ctermfg=7 ctermbg=4 cterm=bold term=bold
 hi Folded ctermbg=NONE guibg=NONE
 hi LineNr ctermfg=7
 hi Error ctermfg=1 ctermbg=NONE guibg=NONE
-hi MatchParen ctermfg=4 ctermbg=NONE guibg=NONE
+hi MatchParen ctermfg=1 ctermbg=NONE guibg=NONE
 hi Pmenu ctermfg=16 guifg=Black ctermbg=254 guibg=#e4e4e4
 hi PmenuSel ctermfg=231 guifg=#ffffff ctermbg=4
 hi Search ctermfg=13 ctermbg=NONE guibg=NONE
