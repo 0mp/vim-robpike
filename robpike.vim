@@ -40,6 +40,6 @@ hi Todo ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE cterm=bold term=bold
 hi Visual ctermfg=16 guifg=Black ctermbg=LightGreen guibg=LightGreen
 hi SpecialKey ctermfg=8 cterm=NONE term=NONE
 hi SpellBad ctermfg=1 ctermbg=NONE guibg=NONE cterm=NONE term=NONE
-hi gitcommitSummary ctermfg=4
+hi gitcommitSummary ctermfg=12
 hi SpaceTrailingAnyTabs cterm=underline term=underline
 match SpaceTrailingAnyTabs /\(^\t*\)\@<= \+$/

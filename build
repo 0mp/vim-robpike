@@ -112,6 +112,7 @@ color_ansi_red=1
 color_ansi_blue=4
 color_ansi_dark_white=7
 color_ansi_bright_black=8
+color_ansi_bright_blue=12
 color_ansi_bright_magenta=13
 color_ansi_bright_white=15
 
@@ -134,6 +135,7 @@ bg_common_gray="$(dobg $color_common_gray)"
 bg_light_green="$(dobg $color_light_green)"
 
 fg_ansi_blue="$(dofg $color_ansi_blue)"
+fg_ansi_bright_blue="$(dofg $color_ansi_bright_blue)"
 fg_ansi_bright_magenta="$(dofg $color_ansi_bright_magenta)"
 fg_ansi_bright_black="$(dofg $color_ansi_bright_black)"
 fg_ansi_dark_white="$(dofg $color_ansi_dark_white)"
@@ -179,7 +181,7 @@ hl SpecialKey $fg_ansi_bright_black $term_reset
 
 hl SpellBad $fg_ansi_red $bg_reset $term_reset
 
-hl gitcommitSummary $fg_ansi_blue
+hl gitcommitSummary $fg_ansi_bright_blue
 
 # https://jbodah.github.io/blog/2016/11/01/positivenegative-lookaheadlookbehind-vim/
 hl SpaceTrailingAnyTabs $underline
