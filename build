@@ -4,7 +4,7 @@
 #
 # ---
 #
-# Copyright (c) 2017-2018 Mateusz Piotrowski <0mp@FreeBSD.org>
+# Copyright (c) 2017-2020 Mateusz Piotrowski <0mp@FreeBSD.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -30,7 +30,7 @@
 
 colorschemename='robpike'
 maintainer='Mateusz Piotrowski'
-version=0.8.0
+version=0.9.0
 background=light
 
 generate_header() {
@@ -163,7 +163,7 @@ hl ColorColumn $fg_black $bg_common_gray $term_reset
 hl CursorLine $fg_reset $bg_reset $term_reset
 hl CursorLineNr $fg_ansi_dark_white $bg_ansi_blue $bold
 hl Folded $bg_reset
-hl LineNr $fg_ansi_dark_white
+hl LineNr $reset
 
 hl Error $fg_ansi_red $bg_reset
 hl MatchParen $fg_ansi_red $bg_reset
