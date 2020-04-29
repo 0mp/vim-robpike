@@ -23,6 +23,7 @@ hi! link Statement Normal
 hi! link String Normal
 hi! link Type Normal
 hi Comment ctermfg=2
+hi SpecialComment ctermfg=2
 hi ColorColumn ctermfg=16 guifg=Black ctermbg=254 guibg=#e4e4e4 cterm=NONE term=NONE
 hi CursorLine ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE cterm=NONE term=NONE
 hi CursorLineNr ctermfg=7 ctermbg=4 cterm=bold term=bold

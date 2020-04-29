@@ -160,6 +160,7 @@ link String Normal
 link Type Normal
 
 hl Comment $fg_ansi_green
+hl SpecialComment $fg_ansi_green
 
 hl ColorColumn $fg_black $bg_common_gray $term_reset
 hl CursorLine $fg_reset $bg_reset $term_reset
