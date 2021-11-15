@@ -68,7 +68,7 @@ hl() {
                 shift
                 ;;
             *)
-                printf 'Invalid option "%s"\n' "$1" &1>2
+                printf 'Invalid option "%s"\n' "$1" 1>&2
                 exit 1
         esac
     done
