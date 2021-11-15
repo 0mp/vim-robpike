@@ -54,7 +54,7 @@ EOF
 }
 
 link() {
-    printf 'hi! link %s %s\n' $1 $2
+    printf 'hi! link %s %s\n' "$1" "$2"
 }
 
 hl() {
@@ -81,21 +81,21 @@ match() {
 
 dobg() {
     if [ $# -gt 0 ]; then
-        printf ' ctermbg=%s' $1
+        printf ' ctermbg=%s' "$1"
     fi
     shift
     if [ $# -gt 0 ]; then
-        printf ' guibg=%s' $1
+        printf ' guibg=%s' "$1"
     fi
 }
 
 dofg() {
     if [ $# -gt 0 ]; then
-        printf ' ctermfg=%s' $1
+        printf ' ctermfg=%s' "$1"
     fi
     shift
     if [ $# -gt 0 ]; then
-        printf ' guifg=%s' $1
+        printf ' guifg=%s' "$1"
     fi
 }
 
