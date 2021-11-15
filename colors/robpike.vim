@@ -4,7 +4,7 @@
 "
 " Name: robpike.vim
 " Maintainer: Mateusz Piotrowski
-" Version: 0.10.0
+" Version: 0.11.1
 
 set background=light
 hi clear
